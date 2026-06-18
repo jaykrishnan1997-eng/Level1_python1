@@ -7,7 +7,7 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 15:03:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/18 14:08:19 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/18 16:03:55 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -28,7 +28,7 @@ class Plant:
 
 
 class Flower(Plant):
-    def __init__(self, name, height, age, color):
+    def __init__(self, name, height, age, color: str):
         super().__init__(name, height, age)
         self._color = color
         self._bloom = 0
@@ -38,29 +38,39 @@ class Flower(Plant):
         self._bloom = 1
 
     def show(self):
-        
-        Plant.show(self)
+        super().show()
+        print(" Color: " + self._color)
         if (self._bloom == 0):
-            print(self._name + " has not bloomed yet")
+            print(" " + self._name + " has not bloomed yet")
         else:
-            print(self._name + " is blooming beautifully!")
+            print(" " + self._name + " is blooming beautifully!")
 
 
 class Tree(Plant):
-    def __init__(self, name, height, age, trunk_diameter):
+    def __init__(self, name, height, age, trunk_diameter: float):
         super().__init__(name, height, age)
         self._trunk_diameter = trunk_diameter
 
     def produce_shade(self):
-        print("Tree " + self._name + " now produce a shade of " + str(self._height) + " cm long and " + str(self._trunk_diameter) + " cm wide")
+        print("[asking the " + self._name + " to produce shade]")
+        print("Tree " + self._name + " now produce a shade of " + str(self._height) + " cm long and " + str(self._trunk_diameter) + " cm wide.")
+
+    def show(self):
+        super().show()
+        print(" Trunk diameter: " + str(self._trunk_diameter))
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, age, harvest_season, nutrition_value):
+    def __init__(self, name, height, age, harvest_season: str, nutrition_value: int):
         super().__init__(name, height, age)
         self._harvest_season = harvest_season
         self._nutrition_value = nutrition_value
-
-    def produce_shade(self):
-        print("Tree " + self._name + " now produce a shade of " + str(self._height) + " cm long and " + str(self._trunk_diameter) + " cm wide")
+        
+    def grow(self):
+        print("[make " + self._name + " grow and age for 20 days]")
+        self._age += 20
     
+    def show(self):
+        super().show()
+        print(" Harvest season: " + self._harvest_season)
+        print(" Nutrition value: " + self._nutrition_value)
