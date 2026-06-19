@@ -7,21 +7,21 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 13:47:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/12 14:57:56 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/19 15:13:17 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
-    def __init__(self, name: str, height: float, age: int):
+    def __init__(self, name: str, height: float, age: float) -> None:
         self._name = name
         self._height = height
         self._age = age
 
-    def show(self):
+    def show(self) -> None:
         print("Plant created: " + self._name + ": " + str(round(self._height,
               1)) + "cm, " + str(self._age) + " days old")
 
-    def set_height(self, height: float):
+    def set_height(self, height: float) -> None:
         if (height < 0):
             print(self._name + ": Error, height can't be negative")
             print("Height update rejected")
@@ -31,7 +31,7 @@ class Plant:
         else:
             print(self._name + ": Invalid data")
 
-    def set_age(self, age: int):
+    def set_age(self, age: float) -> None:
         if (age < 0):
             print(self._name + ": Error, age can't be negative")
             print("Age update rejected")
@@ -41,13 +41,13 @@ class Plant:
         else:
             print(self._name + ": Invalid data")
 
-    def get_name(self):
+    def get_name(self) -> str:
         return (self._name)
 
-    def get_height(self):
+    def get_height(self) -> float:
         return (self._height)
 
-    def get_age(self):
+    def get_age(self) -> float:
         return (self._age)
 
 

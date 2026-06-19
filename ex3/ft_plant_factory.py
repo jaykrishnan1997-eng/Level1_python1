@@ -7,18 +7,18 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 13:09:05 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/12 13:45:06 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/19 15:11:42 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 
 class Plant:
-    def __init__(self, name: str, height: float, age: int):
+    def __init__(self, name: str, height: float, age: float) -> None:
         self.name = name
         self.height = height
         self.age = age
 
-    def show(self):
+    def show(self) -> None:
         print("Created: " + self.name + ": " + str(self.height) + "cm, "
               + str(self.age) + " days old")
 

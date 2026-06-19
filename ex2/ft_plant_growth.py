@@ -7,17 +7,17 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 12:25:03 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/12 12:52:17 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/19 15:11:09 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: float, age: float) -> None:
         self.name = name
         self.height = height
         self.age = age
 
-    def growth(self):
+    def growth(self) -> None:
         print("=== Garden Plant Growth ===")
         initial_height = self.height
         for i in range(1, 8):

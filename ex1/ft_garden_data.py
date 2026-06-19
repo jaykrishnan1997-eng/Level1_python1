@@ -7,12 +7,12 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 12:08:57 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/12 12:22:25 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/19 15:11:01 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: float, age: float) -> None:
         print(name + ": " + str(height) + "cm, " + str(age) + " days old")
 
 
