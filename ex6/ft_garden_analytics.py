@@ -7,15 +7,27 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 15:03:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/19 16:00:29 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/20 12:02:51 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
 class Plant:
+    class Stat:
+        def __init__(self) -> None:
+            self.stat_age = 0
+            self.stat_grow = 0
+            self.stat_show = 0
+
+        def show_stat(self, name):
+            print(f"[statistics for {name}]")
+            print(f"Stats: {self.stat_grow} grow, {self.stat_age} age, {self.stat_show} show")
+
+
     def __init__(self, name: str, height: float, age: float) -> None:
         self._name = name
         self._height = height
         self._age = age
+        self._stat = Plant.Stat()
 
     def set_age(self) -> None:
         self._age += 1
@@ -27,24 +39,20 @@ class Plant:
         return (self._age)
 
     def get_grow(self) -> float:
-        return (self._grow)
+        return (self._height)
 
     def show(self) -> None:
         print(self._name + ": " + str(self._height) + "cm, " +
               str(self._age) + " days old")
-        Plant.stat.stat_show += 1
+        self._stat.stat_show += 1
+
+    def stat(self) -> None:
+        self._stat.show_stat(self._name)
 
     @staticmethod
     def check_age(ch_age: float) -> None:
-        res: bool = (ch_age > 365)
+        res = str(ch_age > 365)
         print("Is " + str(ch_age) + " days more than a year? -> " + res)
-
-    def stat(self) -> None:
-        stat_age: int = 0
-        stat_grow: int = 0
-        stat_show: int = 0
-        print(f"[statistics for {self._name}]")
-        print(f"Stats: {stat_grow} grow, {stat_age} age, {stat_show} show")
 
 
 class Flower(Plant):
@@ -64,7 +72,6 @@ class Flower(Plant):
             print(" " + self._name + " has not bloomed yet")
         else:
             print(" " + self._name + " is blooming beautifully!")
-        self._show += 1
 
 
 class Tree(Plant):
@@ -91,9 +98,10 @@ if __name__ == "__main__":
     print("\n=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
-    super().rose.stat()
-    # rose.bloom()
-    # rose.show()
+    rose.stat()
+    rose.bloom()
+    rose.show()
+    rose.stat()
     # print("\n=== Tree")
     # oak = Tree("Oak", 200.0, 365, 5.0)
     # oak.show()
