@@ -7,7 +7,7 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 15:03:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/19 15:24:50 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/25 11:47:26 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -64,7 +64,8 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, age, harvest_season: str, n_value: float) -> None:
+    def __init__(self, name, height, age, harvest_season: str,
+                 n_value: float) -> None:
         super().__init__(name, height, age)
         self._harvest_season = harvest_season
         self._n_value = n_value

@@ -7,7 +7,7 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 15:03:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/20 14:42:13 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/25 11:53:16 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -20,7 +20,8 @@ class Plant:
 
         def show_stat(self, name) -> None:
             print(f"[statistics for {name}]")
-            print(f"Stats: {self.stat_grow} grow, {self.stat_age} age, {self.stat_show} show")
+            print(f"Stats: {self.stat_grow} grow, \
+            {self.stat_age} age, {self.stat_show} show")
 
     def __init__(self, name: str, height: float, age: float) -> None:
         self._name = name
@@ -69,7 +70,7 @@ class Flower(Plant):
     def bloom(self) -> None:
         # print("[asking the " + self._name + " to bloom]")
         self._bloom = 1
-     
+
     def show(self) -> None:
         super().show()
         print(" Color: " + self._color)
@@ -96,10 +97,10 @@ class Tree(Plant):
 
     def produce_shade(self) -> None:
         print("[asking the " + self._name + " to produce shade]")
-        print("Tree " + self._name + " now produce a shade of " + 
+        print("Tree " + self._name + " now produce a shade of " +
               str(self._height) + "cm long and " + str(self._trunk_diameter)
               + "cm wide.")
-        self._stat.stat_shade += 1
+        self.stat_stade = 1
 
     def show(self):
         super().show()
@@ -118,11 +119,11 @@ class Seed(Flower):
     def set_grow(self) -> None:
         self._height = round(self._height + 30.0, 1)
         self._stat.stat_grow += 1
-        
+
     def bloom(self) -> None:
         super().bloom()
         self._seeds = 42
-        
+
     def show(self) -> None:
         super().show()
         print(f" Seeds: {self._seeds}")
@@ -130,6 +131,7 @@ class Seed(Flower):
 
 def display_stats(plant):
     plant.stat()
+
 
 if __name__ == "__main__":
     print("=== Garden statistics ===")
