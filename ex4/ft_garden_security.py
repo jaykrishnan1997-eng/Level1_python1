@@ -7,7 +7,7 @@
 #   By: jkrishna <jkrishna@student.42.fr>            +#+  +:+       +#+       #
 #                                                  +#+#+#+#+#+   +#+          #
 #   Created: 2026/06/12 13:47:28 by jkrishna            #+#    #+#            #
-#   Updated: 2026/06/19 15:13:17 by jkrishna           ###   ########.fr      #
+#   Updated: 2026/06/29 12:03:04 by jkrishna           ###   ########.fr      #
 #                                                                             #
 # ########################################################################### #
 
@@ -28,8 +28,8 @@ class Plant:
         elif (height >= 0):
             self._height = float(height)
             print("Height updated: " + str(self._height) + "cm")
-        else:
-            print(self._name + ": Invalid data")
+        # else:
+        #     print(self._name + ": Invalid data")
 
     def set_age(self, age: float) -> None:
         if (age < 0):
@@ -38,8 +38,8 @@ class Plant:
         elif (age >= 0):
             self._age = age
             print("Age updated: " + str(self._age) + " days")
-        else:
-            print(self._name + ": Invalid data")
+        # else:
+        #     print(self._name + ": Invalid data")
 
     def get_name(self) -> str:
         return (self._name)
@@ -55,12 +55,12 @@ if __name__ == "__main__":
     print("=== Garden Security System ===")
     p1 = Plant("Rose", 15.0, 10)
     p1.show()
-    print("\n")
+    print("")
     p1.set_height(25)
     p1.set_age(30)
-    print("\n")
+    print("")
     p1.set_height(-25)
     p1.set_age(-30)
-    print("\n")
+    print("")
     print("Current state: " + p1.get_name() + ": " + str(round(
           p1.get_height(), 1)) + "cm, " + str(p1.get_age()) + " days old")
